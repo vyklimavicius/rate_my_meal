@@ -13,7 +13,6 @@ const RestaurantCard = (prop) => {
         card: {
             marginTop: '5%',
             marginLeft: '6%',
-            // display: 'inline-block',
             width: '85%',
             height: 'auto',
             padding: '0',
@@ -50,7 +49,7 @@ const RestaurantCard = (prop) => {
                         <Review avatar={female} />
                     </CardContent>
                     <CardContent>
-                        <Icon name='star' />
+                        <Icon name='star' color='yellow'/>
                         5 star
                     </CardContent>
                     <Button 

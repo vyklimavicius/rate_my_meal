@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header } from 'semantic-ui-react';
+import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header, Image } from 'semantic-ui-react';
 import RestaurantCard from './RestaurantCard.js';
 import AddReview from './AddReview.js';
+import male from '../assets/avatarMale.jpg';
 
 const UserDashboard = () => {
 
@@ -33,6 +34,15 @@ const UserDashboard = () => {
             // fontFamily: 'Ubuntu, sans-serif'
             // fontFamily: 'Ibarra Real Nova, serif',
             fontFamily: 'Abril Fatface, cursive'
+        },
+        avatar: {
+            width: '5%',
+            height: '5%',
+            margin: '1%',
+        },
+        username: {
+            alignSelf: 'center',
+            margin: '1%'
         }
     };
 
@@ -47,6 +57,8 @@ const UserDashboard = () => {
             setCommentBool(false);
         };
     };
+
+    
     
     console.log(commentBool);
     
@@ -66,9 +78,10 @@ const UserDashboard = () => {
                             <Dropdown item text='Restaurants'>
                                 <DropdownMenu>
                                     <DropdownItem>Add</DropdownItem>
-                                    <DropdownItem>Reviews</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
+                        <Image style={styles.avatar} src={male} avatar />
+                        <Header style={styles.username}>Vytautas</Header>
                         </Menu>
                     </nav>
                 </header>
