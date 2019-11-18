@@ -88,15 +88,6 @@ const SignUp = () => {
                     </Form.Field>
 
                     <Form.Field>
-                        <Label>Confirm Password</Label>
-                        <Input
-                            type='password'
-                            icon='user secret'
-                            placeholder='Please re-type a password'
-                        />
-                    </Form.Field>
-
-                    <Form.Field>
                         <Checkbox label='I agree to the Terms and Conditions' />
                     </Form.Field>
 
