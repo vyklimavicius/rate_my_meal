@@ -3,6 +3,7 @@ import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header, Image } from 
 import RestaurantCard from './RestaurantCard.js';
 import AddReview from './AddReview.js';
 import male from '../assets/avatarMale.jpg';
+import AddRestaurant from './AddRestaurant.js';
 
 const UserDashboard = () => {
 
@@ -21,8 +22,8 @@ const UserDashboard = () => {
             height: '100%',
         },
         section: {
-            margin: '2%',
-            overflowY: 'auto'
+            margin: '1%',
+            overflowX: 'auto'
         },
         header: {
             margin: '1% auto',
@@ -48,6 +49,7 @@ const UserDashboard = () => {
 
     // State
     const [commentBool, setCommentBool] = useState(false);
+    const [addRestaurantBool, setAddRestaurantBool] = useState(false);
 
     // Functions
     const changeCommentBool = () => {
@@ -57,6 +59,16 @@ const UserDashboard = () => {
             setCommentBool(false);
         };
     };
+
+    const addRestaurantUI = () => {
+        if (addRestaurantBool === false) {
+            setAddRestaurantBool(true);
+        } else {
+            setAddRestaurantBool(false);
+        };
+    };
+
+
 
     
     
@@ -77,7 +89,7 @@ const UserDashboard = () => {
                             </Dropdown>
                             <Dropdown item text='Restaurants'>
                                 <DropdownMenu>
-                                    <DropdownItem>Add</DropdownItem>
+                                    <DropdownItem onClick={addRestaurantUI}>Add</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
                         <Image style={styles.avatar} src={male} avatar />
@@ -86,6 +98,7 @@ const UserDashboard = () => {
                     </nav>
                 </header>
                     <Header style={styles.header}>RateMyMeal</Header>
+                    {addRestaurantBool === true ? <AddRestaurant /> : null}
                 <section style={styles.section}>
                     <RestaurantCard comment={changeCommentBool}/>
                     <RestaurantCard comment={changeCommentBool}/>

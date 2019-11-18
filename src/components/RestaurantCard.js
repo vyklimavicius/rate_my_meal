@@ -11,10 +11,9 @@ const RestaurantCard = (prop) => {
 
     const styles = {
         card: {
-            marginTop: '5%',
-            marginLeft: '6%',
-            width: '85%',
-            height: 'auto',
+            margin: '3% auto',
+            width: '70%',
+            height: '40',
             padding: '0',
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
