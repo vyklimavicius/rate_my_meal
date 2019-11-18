@@ -38,9 +38,7 @@ const SignUp = () => {
             height: 'auto'
         },
         image: {
-            alignSelf: 'center',
-            height: '15%',
-            width: '8%'
+            alignSelf: 'center'
         }
     };
 
