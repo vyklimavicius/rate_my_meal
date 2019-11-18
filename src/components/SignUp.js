@@ -19,12 +19,12 @@ const SignUp = () => {
             padding: '1%',
         },
         subcard: {
-            width: '90%',
+            width: '100%',
             margin: '1%',
             alignSelf: 'center',
         },
         header: {
-                marginTop: '0.5%',
+                marginTop: '0%',
                 display: 'inline-block',
                 marginLeft: '5%',
                 width: '40%',
@@ -33,12 +33,14 @@ const SignUp = () => {
                 color: '#227DA5',
         },
         form: {
-            margin: '1%',
+            margin: '0.5%',
             width: '98%',
             height: 'auto'
         },
         image: {
             alignSelf: 'center',
+            height: '15%',
+            width: '8%'
         }
     };
 
