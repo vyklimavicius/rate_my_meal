@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Form, Label, Input, Button, Header } from 'semantic-ui-react';
 
-const AddRestaurant = () => {
+const AddRestaurant = (props) => {
+
+    console.log(props);
+    
+    // Style
 
     const styles  = {
         card: {
@@ -15,25 +19,64 @@ const AddRestaurant = () => {
             border: '2px solid #227DA5',
             // fontFamily: 'Ibarra Real Nova, serif'
         },
-        form: {
-            
-        },
         header: {
             alignSelf: 'center'
         }
     };
 
+    // State 
+    const [ newRestaurant, setNewRestaurant ] = useState({});
+
+
+    // Function 
+    const restaurantForm = () => {
+        sendChange();
+    };
+    
+    const sendChange = () => {
+        fetch('http://localhost:3000/api/v1/restaurants', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ restaurant: newRestaurant })
+        }).then( props.rerender())
+    };  
+
+   
+    const inputChange = (e) => {
+        switch (e.target.name) {
+            case 'name':
+                setNewRestaurant({...newRestaurant, name: e.target.value});
+                break;
+            case 'specialty':
+                setNewRestaurant({ ...newRestaurant, specialty: e.target.value});
+                break;
+            case 'url':
+                setNewRestaurant({...newRestaurant, image: e.target.value});
+                break;
+            default:
+                return newRestaurant;
+        }
+    };
+
+    // console.log(newRestaurant);
+    
+   
     return (
         <div style={styles.container}>
             <Card style={styles.card}>
               <Header style={styles.header}>New Restaurant</Header>
-              <Form style={styles.form}>
+              <Form>
                     <Form.Field>
                         <Label>Name</Label>
                         <Input
                             type='text'
                             icon='food'
                             placeholder='name'
+                            name='name'
+                            onChange={(e) => inputChange(e)}
                         />
                     </Form.Field>
 
@@ -43,6 +86,8 @@ const AddRestaurant = () => {
                             type='text'
                             icon='bar'
                             placeholder='specialty'
+                            name='specialty'
+                            onChange={(e) => inputChange(e)}
                         />
                     </Form.Field>
                     <Form.Field>
@@ -51,9 +96,11 @@ const AddRestaurant = () => {
                             type='url'
                             icon='image'
                             placeholder='image url'
+                            name='url'
+                            onChange={(e) => inputChange(e)}
                         />
                     </Form.Field>
-                    <Button>Submit</Button>
+                    <Button onClick={restaurantForm}>Submit</Button>
               </Form>
             </Card>
         </div>

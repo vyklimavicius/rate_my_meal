@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header, Image } from 'semantic-ui-react';
 import RestaurantCard from './RestaurantCard.js';
 import AddReview from './AddReview.js';
@@ -50,6 +50,26 @@ const UserDashboard = () => {
     // State
     const [commentBool, setCommentBool] = useState(false);
     const [addRestaurantBool, setAddRestaurantBool] = useState(false);
+    const [restaurants, setRestaurants] = useState([]);
+
+    // Cycle First Mount 
+    useEffect(() => {
+        const result = fetch('http://localhost:3000/api/v1/restaurants')
+        result
+            .then(response => response.json())
+            .then( json => {
+                setRestaurants(json);
+            });
+        },[]);
+
+    // Re-render
+    const reloadUI = () => {
+        fetch('http://localhost:3000/api/v1/restaurants')
+            .then(response => response.json())
+            .then(json => {
+                setRestaurants(json);
+            });
+    };
 
     // Functions
     const changeCommentBool = () => {
@@ -68,12 +88,6 @@ const UserDashboard = () => {
         };
     };
 
-
-
-    
-    
-    console.log(commentBool);
-    
     return (
         <div style={styles.container}>
             <Card style={styles.mainCard}>
@@ -98,11 +112,11 @@ const UserDashboard = () => {
                     </nav>
                 </header>
                     <Header style={styles.header}>RateMyMeal</Header>
-                    {addRestaurantBool === true ? <AddRestaurant /> : null}
+                    {addRestaurantBool === true ? <AddRestaurant rerender={reloadUI} /> : null}
                 <section style={styles.section}>
-                    <RestaurantCard comment={changeCommentBool}/>
-                    <RestaurantCard comment={changeCommentBool}/>
-                    <RestaurantCard comment={changeCommentBool}/>
+                    { restaurants.length > 0 ? restaurants.map( restaurant => {
+                        return <RestaurantCard comment={changeCommentBool} />
+                    }) : null }
                 </section>
             { commentBool === true ? <AddReview /> : null}
             </Card>
