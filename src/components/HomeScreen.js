@@ -55,7 +55,7 @@ const HomeScreen = () => {
         },
         header: {
             marginTop: '0.5%',
-            marginLeft: '10%',
+            marginLeft: '5%',
             fontFamily: 'Sacramento, cursive',
             fontSize: '60px',
             color: '#227DA5',
