@@ -3,18 +3,17 @@ import { Card, Form, Label, Input, Button, Header } from 'semantic-ui-react';
 
 const AddRestaurant = (props) => {
 
-    console.log(props);
-    
     // Style
 
     const styles  = {
         card: {
             position: 'fixed',
+            alignSelf: 'center',
             zIndex: '2',
             padding: '1%',
-            margin: '5%',
+            margin: '15% auto',
             width: '85%',
-            height: '50%',
+            height: 'auto',
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
             // fontFamily: 'Ibarra Real Nova, serif'
@@ -31,6 +30,7 @@ const AddRestaurant = (props) => {
     // Function 
     const restaurantForm = () => {
         sendChange();
+        props.addRestaurantUI();
     };
     
     const sendChange = () => {
@@ -41,7 +41,7 @@ const AddRestaurant = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ restaurant: newRestaurant })
-        }).then( props.rerender())
+        })
     };  
 
    
@@ -61,11 +61,7 @@ const AddRestaurant = (props) => {
         }
     };
 
-    // console.log(newRestaurant);
-    
-   
     return (
-        <div style={styles.container}>
             <Card style={styles.card}>
               <Header style={styles.header}>New Restaurant</Header>
               <Form>
@@ -100,10 +96,9 @@ const AddRestaurant = (props) => {
                             onChange={(e) => inputChange(e)}
                         />
                     </Form.Field>
-                    <Button onClick={restaurantForm}>Submit</Button>
+                    <Button onClick={restaurantForm}>Add</Button>
               </Form>
             </Card>
-        </div>
     );
 }
 

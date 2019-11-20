@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header, Image } from 'semantic-ui-react';
+import { Menu, Dropdown, DropdownMenu, DropdownItem, Card, Header, Image, Placeholder } from 'semantic-ui-react';
+import Userprofile from './Userprofile.js';
 import RestaurantCard from './RestaurantCard.js';
-import AddReview from './AddReview.js';
-import male from '../assets/avatarMale.jpg';
 import AddRestaurant from './AddRestaurant.js';
+import PlaceHolder from './PlaceHolder.js'
 
 const UserDashboard = () => {
 
@@ -44,41 +44,36 @@ const UserDashboard = () => {
         username: {
             alignSelf: 'center',
             margin: '1%'
+        },
+        placeholder: {
+            margin: 'auto',
+            width: 'auto',
+            height: 'auto'
         }
     };
 
     // State
-    const [commentBool, setCommentBool] = useState(false);
+
     const [addRestaurantBool, setAddRestaurantBool] = useState(false);
+    const [profile, setProfile] = useState(false)
     const [restaurants, setRestaurants] = useState([]);
+    let currentUser = JSON.parse(window.localStorage.getItem('user'));
+    
 
     // Cycle First Mount 
     useEffect(() => {
+        const abortController = new AbortController();
         const result = fetch('http://localhost:3000/api/v1/restaurants')
         result
-            .then(response => response.json())
-            .then( json => {
-                setRestaurants(json);
-            });
-        },[]);
-
-    // Re-render
-    const reloadUI = () => {
-        fetch('http://localhost:3000/api/v1/restaurants')
-            .then(response => response.json())
-            .then(json => {
-                setRestaurants(json);
-            });
-    };
-
-    // Functions
-    const changeCommentBool = () => {
-        if (commentBool === false) {
-            setCommentBool(true);
-        } else {
-            setCommentBool(false);
+        .then(response => response.json())
+        .then( json => {
+            setRestaurants(json);
+        });
+        return () => {
+            abortController.abort();
         };
-    };
+    },[restaurants]);
+
 
     const addRestaurantUI = () => {
         if (addRestaurantBool === false) {
@@ -88,40 +83,67 @@ const UserDashboard = () => {
         };
     };
 
-    return (
-        <div style={styles.container}>
-            <Card style={styles.mainCard}>
-                <header>
-                    <nav>
-                        <Menu style={styles.navbar} pointing>
-                            <Dropdown item text='User'>
-                                <DropdownMenu>
-                                    <DropdownItem>Profile</DropdownItem>
-                                    <DropdownItem>Settings</DropdownItem>
-                                    <DropdownItem>Logout</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
-                            <Dropdown item text='Restaurants'>
-                                <DropdownMenu>
-                                    <DropdownItem onClick={addRestaurantUI}>Add</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
-                        <Image style={styles.avatar} src={male} avatar />
-                        <Header style={styles.username}>Vytautas</Header>
-                        </Menu>
-                    </nav>
-                </header>
-                    <Header style={styles.header}>RateMyMeal</Header>
-                    {addRestaurantBool === true ? <AddRestaurant rerender={reloadUI} /> : null}
-                <section style={styles.section}>
-                    { restaurants.length > 0 ? restaurants.map( restaurant => {
-                        return <RestaurantCard comment={changeCommentBool} />
-                    }) : null }
-                </section>
-            { commentBool === true ? <AddReview /> : null}
-            </Card>
-        </div>
-    );
+    const userProfile = () => {
+        if ( profile === false) {
+            setProfile(true);
+        } else {
+            setProfile(false);
+        };
+    };
+
+    const logOut = () => {
+        window.localStorage.clear();
+        currentUser = null;
+        window.location.href = '/'
+    };
+
+    if (currentUser !== null) {
+        return (
+            <div style={styles.container}>
+                <Card style={styles.mainCard}>
+                    <header>
+                        <nav>
+                            <Menu style={styles.navbar} pointing>
+                                <Dropdown item text='User'>
+                                    <DropdownMenu>
+                                        <DropdownItem onClick={userProfile}>Profile</DropdownItem>
+                                        <DropdownItem>Settings</DropdownItem>
+                                        <DropdownItem onClick={logOut}>Logout</DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
+                                <Dropdown item text='Restaurants'>
+                                    <DropdownMenu>
+                                        <DropdownItem onClick={addRestaurantUI}>Add</DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
+                            <Image style={styles.avatar} src={currentUser.avatar} avatar />
+                            <Header style={styles.username}>{currentUser.name}</Header>
+                            </Menu>
+                        </nav>
+                    </header>
+                        { profile === true ? <Userprofile user={currentUser} /> : null}
+                        <Header style={styles.header}>RateMyMeal</Header>
+                        {addRestaurantBool === true ? <AddRestaurant  addRestaurantUI={addRestaurantUI} /> : null}
+                    <section style={styles.section}>
+                        { restaurants.length > 0 ? restaurants.map( restaurant => {
+                            return <RestaurantCard key={restaurant.id} user={currentUser} restaurant={restaurant} />
+                        }) : 
+                            <div>
+                                <PlaceHolder /> 
+                                <PlaceHolder /> 
+                                <PlaceHolder />
+                            </div>
+                        }
+                    </section>
+                    
+                </Card>
+            </div>
+        );
+
+    } else {
+        window.location.href = '/'
+    }
+    
 }
 
 export default UserDashboard;

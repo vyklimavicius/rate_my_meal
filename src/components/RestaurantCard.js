@@ -1,11 +1,9 @@
-import React from 'react';
-import { Card, CardContent, CardMeta, Icon, Image, Header, Button} from 'semantic-ui-react';
-import sardis from '../assets/sardis.jpg';
+import React, { useState, useEffect } from 'react';
+import { Card, CardContent, CardMeta, Image, Header, Button} from 'semantic-ui-react';
 import Review from './Reviews.js';
-import male from '../assets/avatarMale.jpg';
-import female from '../assets/avatarFemale.jpg';
+import AddReview from './AddReview.js';
 
-const RestaurantCard = (prop) => {
+const RestaurantCard = ({ user, restaurant }) => {
 
     // Style
 
@@ -32,45 +30,66 @@ const RestaurantCard = (prop) => {
             margin: '0 auto',
         }
     };
+    
+    // State
+    const [commentBool, setCommentBool] = useState(false);
+    const [reviews, setReviews] = useState([]);
+    let filterReviews;
+
+    // Cycle First Mount 
+    useEffect(() => {
+        const result = fetch('http://localhost:3000/api/v1/reviews')
+        result
+            .then(response => response.json())
+            .then(json => {
+                setReviews(json);
+            })
+    }, [reviews]);
+
+    // functions
+
+    const filter = (reviews) => {
+        filterReviews = reviews.filter( review => {
+            return review.restaurant_id === restaurant.id
+        });
+    };
+
+    const changeCommentBool = () => {
+        if (commentBool === false) {
+            setCommentBool(true);
+        } else {
+            setCommentBool(false);
+        };
+    };
+
+    
+    filter(reviews);
 
     return (
-
-             <Card style={styles.card}>
-                <Image  style={styles.image} src={sardis}  size='medium' rounded/>
-                    <CardContent>
-                        <Card.Header>Sardis</Card.Header>
-                        <Header as='h4'>Specialty: Continental</Header>
-                        <CardMeta>Joined in 2019</CardMeta>
-                        <Header as='h4' dividing>Reviews</Header>
-                        <Review avatar={male} />
-                        <Review avatar={female} />
-                        <Review avatar={male} /> 
-                        <Review avatar={female} />
-                    </CardContent>
-                    <CardContent>
-                        <Icon name='star' color='yellow'/>
-                        5 star
-                    </CardContent>
-                    <Button 
-                    onClick={prop.comment}>
-                    Add a Review
-                    </Button>
-            </Card> 
+                <Card style={styles.card}>
+                    <Image  style={styles.image} src={restaurant.image}  size='medium' rounded/>
+                        <CardContent>
+                            <Card.Header>{restaurant.name.toUpperCase()}</Card.Header>
+                            <Header as='h4'>Specialty: {restaurant.specialty}</Header>
+                            <CardMeta>Joined in 2019</CardMeta>
+                            <Header as='h4' dividing>Reviews</Header>
+                            { reviews.length > 0 ? filterReviews.map( review => {
+                                   let newDate = review.created_at.slice(0,10)
+                                   return <Review key={review.id} 
+                                   rating={review.rating_id}
+                                   avatar={review.avatar} 
+                                   name={review.name} 
+                                   post={review.post} 
+                                   date={newDate}/>}) 
+                                   : null }
+                        </CardContent>
+                        <Button 
+                         onClick={changeCommentBool}>
+                        Add a Review
+                        </Button>
+                     {commentBool === true ? <AddReview user={user} restaurant={restaurant} bool={changeCommentBool}/> : null}
+               </Card>              
     );
 }
 
 export default RestaurantCard;
-
-/* <Header style={styles.header} as='h2'>First Card</Header>
-<Placeholder style={styles.imagePlaceHolder}>
-<Placeholder.Image />
-</Placeholder> */
-// {/* <Card.Content>
-//     <Card.header>Restaurant name</Card.header>
-//     <Card.Meta>Joined in 2019</Card.Meta>
-//     <Card.Description>The review will go here</Card.Description>
-// </Card.Content>
-// <Card.Content extra>
-//     {/* <Icon name='like' />
-//     10 likes */}
-// {/* </Card.Content> */}

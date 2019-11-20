@@ -1,7 +1,7 @@
 import React from 'react';
-import { Comment, CommentAvatar, CommentContent, CommentAuthor, CommentMetadata, CommentText } from 'semantic-ui-react';
+import { Comment, CommentAvatar, CommentContent, CommentAuthor, CommentMetadata, CommentText, Rating } from 'semantic-ui-react';
 
-const Reviews = ({avatar}) => {
+const Reviews = ({avatar, name, post, date, rating }) => {
 
     const styles = {
         space: {
@@ -13,10 +13,11 @@ const Reviews = ({avatar}) => {
             <Comment style={styles.space}>
                 <CommentAvatar src={avatar}></CommentAvatar>
                 <CommentContent>
-                    <CommentAuthor>Vytautas</CommentAuthor>
-                    <CommentMetadata>11/18/19</CommentMetadata>
-                    <CommentText>It was a great place!</CommentText>
+                <CommentAuthor>{name}</CommentAuthor>
+                    <CommentMetadata>{date}</CommentMetadata>
+                    <CommentText>{post}</CommentText>
                 </CommentContent>
+                <Rating icon='star' color='yellow' defaultRating={rating} maxRating={5} disabled />
             </Comment>
         </div>
     );

@@ -1,23 +1,23 @@
-import React from 'react';
-import { Card, TextArea, Header, Form, Button, Rating } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Card, TextArea, Header, Button, Rating } from 'semantic-ui-react';
 
-const AddReview = () => {
+const AddReview = ({ user, restaurant, bool }) => {
 
     const styles = {
         card: {
-            margin: '0',
+            margin: '0%',
             display: 'inline-block',
             width: '100%',
             height: '100%',
             padding: '1%',
-            // border: '2px solid #227DA5',
             overflowY: 'auto',
         },
         header: {
             fontFamily: 'Abril Fatface, cursive'
         },
         form: {
-            margin: '1%',
+            margin: '1% auto',
+            width: '100%'
         },
         button: {
             margin: '1% auto',
@@ -26,14 +26,48 @@ const AddReview = () => {
         }
     };
 
+    // State
+    const [review, setReview] = useState({}); 
+
+    // Cycle
+    const sendChange = () => {
+        fetch('http://localhost:3000/api/v1/reviews', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ review: { ...review, restaurant_id: restaurant.id, user_id: user.id, name: user.name, avatar: user.avatar}})
+        }).then( bool());
+    };  
+    
+    const inputChangeRating = (e, data) => {
+        setReview({ ...review, rating_id: data.rating});
+    };
+    
+    
+    const inputTextArea =   (e, data)  => {
+        setReview({ ...review, post: data.value});
+    };
+    
+    console.log(review);
+    
+
     return (
         <Card style={styles.card}>
             <Header style={styles.header}>Add a review</Header>
-            <Rating icon='star' defaultRating={1} maxRating={5} />
-            <Form style={styles.form}>
-                <TextArea placeholder='Write a review' />
-                <Button style={styles.button}>Add!</Button>
-            </Form>
+            <Rating 
+            onRate={(e, data) => inputChangeRating(e, data)}
+            icon='star' 
+            defaultRating={1} 
+            maxRating={5} 
+            name='rating' />
+                <TextArea 
+                    style={styles.form}
+                    onChange={inputTextArea}
+                    name='post'
+                    placeholder='Write a review' />
+                <Button onClick={sendChange} style={styles.button}>Add!</Button>
         </Card>
     );
 };

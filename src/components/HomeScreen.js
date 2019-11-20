@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
 Card, 
 Grid, 
@@ -12,7 +12,7 @@ Input,
 Image,
 Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import burger from '../assets/main.jpg';
+import burrito from '../assets/beef.jpg';
 
 
 const HomeScreen = () => {
@@ -32,6 +32,7 @@ const HomeScreen = () => {
             height: '100%',
         },
         subCard: {
+            backgroundColor: '#227DA5',
             border: 'none',
             marginTop: '0.7%',
             marginLeft: '5%',
@@ -87,7 +88,7 @@ const HomeScreen = () => {
             color: '#ffffff'
         },
         image: {
-            margin: '1% auto',
+            margin: 'auto',
             width: '30%',
             height: 'auto',
             border: '2px solid #227DA5',
@@ -97,6 +98,59 @@ const HomeScreen = () => {
             margin: '1%'
         }
     };
+
+    // State 
+    const [ currentUser, setCurrentUser ] = useState({});
+    
+    const facebook = () => {
+    window.location.href = 'https://www.facebook.com/';
+    };
+    const twitter = () => {
+    window.location.href = 'https://www.twitter.com/';
+    };
+    const instagram = () => {
+    window.location.href = 'https://www.instagram.com/';
+    };
+        
+
+    // LifeCycle 
+    const sendChange = () => {
+        fetch('http://localhost:3000/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ autho: currentUser })
+        }).then(response => response.json())
+            .then(user => {
+                if (user.errors) {
+                    alert(user.errors);
+                } else {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    window.location.href = '/dashboard';
+                }
+            });
+        };
+
+    // Functions
+    const inputChange = (e) => {
+        switch (e.target.name) {
+            case 'email':
+                setCurrentUser({ ...currentUser, email: e.target.value });
+                break;
+            case 'password':
+                setCurrentUser({ ...currentUser, password: e.target.value });
+                break;
+            default:
+                return currentUser;
+        }
+    };
+
+    const checkUser = () => {
+            sendChange();
+        };
+
 
     return (
         <div style={styles.container}>
@@ -115,6 +169,8 @@ const HomeScreen = () => {
                                         type='text'
                                         icon='user circle' 
                                         placeholder='Please type your email'
+                                        name='email'
+                                        onChange={(e) => inputChange(e)}
                                         />
                                     </FormField>
                                     <FormField>
@@ -122,6 +178,8 @@ const HomeScreen = () => {
                                         type='password'
                                         icon='user secret' 
                                         placeholder='Please type your password'
+                                        name='password'
+                                        onChange={(e) => inputChange(e)}
                                         />
                                         <Label pointing='above'>Please type your password</Label>
                                     </FormField>
@@ -132,16 +190,16 @@ const HomeScreen = () => {
                             </GridColumn>
                             <GridColumn>
                                 <Header style={styles.text}>Let's start to rate!</Header>
-                                <Button style={styles.button}>Login</Button>
+                                <Button onClick={checkUser} style={styles.button}>Login</Button>
                                 <Header style={styles.text}>Follow us </Header>
-                                        <Button style={styles.social} circular color='facebook' icon='facebook' />
-                                        <Button style={styles.social} circular color='twitter' icon='twitter' />
-                                        <Button style={styles.social} circular color='instagram' icon='instagram' />
+                                        <Button style={styles.social} onClick={facebook}circular color='facebook' icon='facebook' />
+                                    <Button style={styles.social} onClick={twitter} circular color='twitter' icon='twitter' />
+                                    <Button style={styles.social} onClick={instagram} circular color='instagram' icon='instagram' />
                             </GridColumn>
                         </Grid.Row>
                     </Grid>
                 </Segment>
-                <Image style={styles.image} src={burger} />
+                <Image style={styles.image} src={burrito} />
             </Card>
               <Card style={styles.footerCard}>
                     <Header style={styles.textFooter}>Vytautas Klimavicius©2019</Header>
