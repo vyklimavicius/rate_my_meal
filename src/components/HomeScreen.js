@@ -55,24 +55,24 @@ const HomeScreen = () => {
         },
         header: {
             marginTop: '0.5%',
-            marginLeft: '15%',
+            marginLeft: '10%',
             fontFamily: 'Sacramento, cursive',
-            fontSize: '5vw',
+            fontSize: '60px',
             color: '#227DA5',
         },
         textFooter: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2.5vw',
+            fontSize: '30px',
             padding: '0.2%'
         },
         text: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2.5vw',
+            fontSize: '30px',
         },
         textSignUp: {
             marginTop: '10%',
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2.5vw'
+            fontSize: '30px'
         },
         grid: {
             margin: '1% 1%',
