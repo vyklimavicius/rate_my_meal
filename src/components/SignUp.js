@@ -61,7 +61,7 @@ const SignUp = () => {
     };
 
     const sendChange = () => {
-        fetch('http://localhost:3000/api/v1/users', {
+        fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/users', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

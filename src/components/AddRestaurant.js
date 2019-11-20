@@ -34,7 +34,7 @@ const AddRestaurant = (props) => {
     };
     
     const sendChange = () => {
-        fetch('http://localhost:3000/api/v1/restaurants', {
+        fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/restaurants', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

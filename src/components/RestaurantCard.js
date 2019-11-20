@@ -38,7 +38,7 @@ const RestaurantCard = ({ user, restaurant }) => {
 
     // Cycle First Mount 
     useEffect(() => {
-        const result = fetch('http://localhost:3000/api/v1/reviews')
+        const result = fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/reviews')
         result
             .then(response => response.json())
             .then(json => {

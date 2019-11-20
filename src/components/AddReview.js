@@ -31,7 +31,7 @@ const AddReview = ({ user, restaurant, bool }) => {
 
     // Cycle
     const sendChange = () => {
-        fetch('http://localhost:3000/api/v1/reviews', {
+        fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/reviews', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

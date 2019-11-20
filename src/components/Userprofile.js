@@ -50,7 +50,7 @@ const Userprofile = () => {
         });
     };
     const sendDelete = () => {
-        fetch(`http://localhost:3000/api/v1/users/${currentUser.id}`, {
+        fetch(`https://nameless-reaches-84962.herokuapp.com/api/v1/users/${currentUser.id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',

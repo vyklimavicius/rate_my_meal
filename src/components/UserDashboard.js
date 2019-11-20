@@ -63,7 +63,7 @@ const UserDashboard = () => {
     // Cycle First Mount 
     useEffect(() => {
         const abortController = new AbortController();
-        const result = fetch('http://localhost:3000/api/v1/restaurants')
+        const result = fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/restaurants')
         result
         .then(response => response.json())
         .then( json => {

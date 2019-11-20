@@ -68,6 +68,7 @@ const HomeScreen = () => {
             fontSize: '2vw',
         },
         textSignUp: {
+            marginTop: '10%',
             fontFamily: 'Sacramento, cursive',
             fontSize: '2vw'
         },
@@ -115,7 +116,7 @@ const HomeScreen = () => {
 
     // LifeCycle 
     const sendChange = () => {
-        fetch('http://localhost:3000/api/v1/login', {
+        fetch('https://nameless-reaches-84962.herokuapp.com/api/v1/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
