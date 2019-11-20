@@ -22,9 +22,9 @@ const HomeScreen = () => {
         container: {
             padding: '2%',
             width: '100%',
-            height: '100%',
+            height: '100vh',
             backgroundColor: '#227DA5',
-            position: 'fixed'
+            // position: 'fixed'
         },
         mainCard: {
             boxSizing: 'border-box',
