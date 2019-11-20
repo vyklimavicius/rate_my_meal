@@ -12,7 +12,7 @@ Input,
 Image,
 Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import burrito from '../assets/beef.jpg';
+import burrito from '../assets/burrito.jpg';
 
 
 const HomeScreen = () => {
@@ -20,15 +20,17 @@ const HomeScreen = () => {
     const styles = {
 
         container: {
+            margin: '0',
             padding: '2%',
             width: '100%',
-            height: '100vh',
+            height: '950px',
             backgroundColor: '#227DA5',
-            // position: 'fixed'
+            overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
             width: '100%',
+            margin: 'auto',
             height: '100%',
         },
         subCard: {
@@ -78,8 +80,8 @@ const HomeScreen = () => {
             marginRight: '1%',
             marginBottom: '1%',
             height: 'auto',
-            padding: '4%',
-            width: '60%',
+            padding: '1%',
+            width: '40%',
         },
         form: {
             margin: '5%',
@@ -90,9 +92,9 @@ const HomeScreen = () => {
             color: '#ffffff'
         },
         image: {
-            margin: 'auto 1%',
+            margin: 'auto',
             width: '40%',
-            height: '80%',
+            height: '60%',
             border: '2px solid #227DA5',
         },
         social: {

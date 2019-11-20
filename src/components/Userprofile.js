@@ -9,12 +9,13 @@ const Userprofile = ({ bool }) => {
     const styles = {
         card: {
             position: 'fixed',
+            overflowX: 'auto',
             zIndex: '2',
             alignSelf: 'center',
             padding: '1%',
-            margin: '15% auto',
-            width: '85%',
-            height: 'auto',
+            margin: '6% auto',
+            width: '80%',
+            height: '40%',
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
             // fontFamily: 'Ibarra Real Nova, serif'

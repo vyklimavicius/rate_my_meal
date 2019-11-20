@@ -14,7 +14,7 @@ const UserDashboard = () => {
             width: '100%',
             height: '100%',
             backgroundColor: '#227DA5',
-            position: 'fixed'
+            overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
@@ -42,8 +42,7 @@ const UserDashboard = () => {
             margin: '1%',
         },
         username: {
-            alignSelf: 'center',
-            margin: '1%'
+            margin: 'auto 1%'
         },
         placeholder: {
             margin: 'auto',

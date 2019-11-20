@@ -9,13 +9,16 @@ const SignUp = () => {
         container: {
             padding: '2%',
             width: '100%',
-            height: '100%',
+            height: '950px',
             backgroundColor: '#227DA5',
-            position: 'fixed'
+            // position: 'fixed'
+            // overflow: 'auto',
+            overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
             width: '100%',
+            margin: 'auto',
             height: '100%',
             padding: '1%',
         },
@@ -36,7 +39,7 @@ const SignUp = () => {
         form: {
             margin: '0.5%',
             width: '98%',
-            height: 'auto'
+            height: '100vh'
         },
         image: {
             alignSelf: 'center'
