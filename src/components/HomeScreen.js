@@ -81,7 +81,7 @@ const HomeScreen = () => {
             width: '60%',
         },
         form: {
-            margin: '5%'
+            margin: 'auto'
         },
         button: {
             backgroundColor: '#227DA5',
