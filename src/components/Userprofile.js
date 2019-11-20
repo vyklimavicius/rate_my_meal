@@ -25,6 +25,7 @@ const Userprofile = ({ bool }) => {
         },
         message: {
             width: '80',
+            margin: '1%',
             alignSelf: 'center'
         }
     };

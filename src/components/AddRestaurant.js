@@ -15,6 +15,7 @@ const AddRestaurant = (props) => {
             margin: '1% auto',
             width: '80%',
             height: '50%',
+            
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
             // fontFamily: 'Ibarra Real Nova, serif'
@@ -24,7 +25,8 @@ const AddRestaurant = (props) => {
         },
         message: {
                 width: '80',
-                alignSelf: 'center'
+                alignSelf: 'center',
+                margin: '1%',
         }
     };
 

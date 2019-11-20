@@ -7,18 +7,18 @@ const SignUp = () => {
 
     const styles = {
         container: {
-            padding: '2%',
+            padding: '1%',
             width: '100%',
-            height: '950px',
+            height: '850px',
             backgroundColor: '#227DA5',
             // position: 'fixed'
             // overflow: 'auto',
-            overflowX: 'auto'
+            overflowX: 'auto',
+            margin: '5% auto',
         },
         mainCard: {
             boxSizing: 'border-box',
             width: '100%',
-            margin: 'auto',
             height: '100%',
             padding: '1%',
         },

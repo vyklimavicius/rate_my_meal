@@ -9,10 +9,10 @@ Button,
 Form, 
 FormField,
 Input, 
-Image,
+// Image,
 Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import burrito from '../assets/burrito.jpg';
+// import burrito from '../assets/burrito.jpg';
 
 
 const HomeScreen = () => {
@@ -22,14 +22,14 @@ const HomeScreen = () => {
         container: {
             margin: '0',
             padding: '2%',
-            width: '100%',
+            width: 'auto',
             height: '950px',
             backgroundColor: '#227DA5',
             overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
-            width: '100%',
+            width: 'auto',
             margin: 'auto',
             height: '100%',
         },
@@ -62,26 +62,23 @@ const HomeScreen = () => {
         },
         textFooter: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '1.5vw',
+            fontSize: '2.5vw',
             padding: '0.2%'
         },
         text: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2vw',
+            fontSize: '2.5vw',
         },
         textSignUp: {
             marginTop: '10%',
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2vw'
+            fontSize: '2.5vw'
         },
         grid: {
-            marginTop: '1%',
-            marginLeft: '6%',
-            marginRight: '1%',
-            marginBottom: '1%',
+            margin: '1% 1%',
             height: 'auto',
             padding: '1%',
-            width: '40%',
+            width: '100%',
         },
         form: {
             margin: '5%',
@@ -170,7 +167,7 @@ const HomeScreen = () => {
                                     <FormField>
                                         <Label pointing='below'>Please type your email</Label>
                                         <Input 
-                                        size='mini'
+                                        size='small'
                                         type='text'
                                         icon='user circle' 
                                         placeholder='Please type your email'
@@ -180,7 +177,7 @@ const HomeScreen = () => {
                                     </FormField>
                                     <FormField>
                                         <Input 
-                                        size='mini'
+                                        size='small'
                                         type='password'
                                         icon='user secret' 
                                         placeholder='Please type your password'
@@ -205,7 +202,7 @@ const HomeScreen = () => {
                         </Grid.Row>
                     </Grid>
                 </Segment>
-                <Image style={styles.image} src={burrito} />
+                {/* <Image style={styles.image} src={burrito} /> */}
             </Card>
               <Card style={styles.footerCard}>
                     <Header style={styles.textFooter}>Vytautas Klimavicius©2019</Header>
