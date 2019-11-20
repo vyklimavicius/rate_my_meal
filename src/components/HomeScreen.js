@@ -60,17 +60,17 @@ const HomeScreen = () => {
         },
         textFooter: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '1.5vw',
+            // fontSize: '1.5vw',
             padding: '0.2%'
         },
         text: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2vw',
+            // fontSize: '2vw',
         },
         textSignUp: {
             marginTop: '10%',
             fontFamily: 'Sacramento, cursive',
-            fontSize: '2vw'
+            // fontSize: '2vw'
         },
         grid: {
             marginTop: '1%',
@@ -82,7 +82,7 @@ const HomeScreen = () => {
             width: '60%',
         },
         form: {
-            margin: 'auto'
+            margin: '1%'
         },
         button: {
             backgroundColor: '#227DA5',

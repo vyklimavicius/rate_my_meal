@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Card, Form, Header,  Button, Label, Input } from 'semantic-ui-react';
+import { Card, Form, Header, Button, Label, Input, Message } from 'semantic-ui-react';
 
-const Userprofile = () => {
+const Userprofile = ({ bool }) => {
 
     
     // Styles
@@ -22,6 +22,10 @@ const Userprofile = () => {
         header: {
             alignSelf: 'center'
         },
+        message: {
+            width: '80',
+            alignSelf: 'center'
+        }
     };
     
     // State
@@ -33,7 +37,7 @@ const Userprofile = () => {
     
     
     const sendChange = () => {
-        fetch(`http://localhost:3000/api/v1/users/${currentUser.id}`, {
+        fetch(`https://nameless-reaches-84962.herokuapp.com/api/v1/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
@@ -108,7 +112,12 @@ const Userprofile = () => {
                         />
                     </Form.Field>
                         <Button onClick={sendChange}>Edit User</Button>
+                        <Button onClick={bool}>Back</Button>
                         <Button color='red' onClick={sendDelete}>Delete</Button>
+                    <Message style={styles.message} negative>
+                        <Message.Header>Alert</Message.Header>
+                        <p>This will prompt you to login again</p>
+                    </Message>
                 </Form>
             </Card>
         )

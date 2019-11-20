@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Form, Label, Input, Button, Header } from 'semantic-ui-react';
+import { Card, Form, Label, Input, Button, Header, Message } from 'semantic-ui-react';
 
 const AddRestaurant = (props) => {
 
@@ -20,6 +20,10 @@ const AddRestaurant = (props) => {
         },
         header: {
             alignSelf: 'center'
+        },
+        message: {
+                width: '80',
+                alignSelf: 'center'
         }
     };
 
@@ -97,6 +101,11 @@ const AddRestaurant = (props) => {
                         />
                     </Form.Field>
                     <Button onClick={restaurantForm}>Add</Button>
+                <Button onClick={props.addRestaurantUI}>Back</Button>
+                <Message style={styles.message} negative>
+                    <Message.Header>Next Update</Message.Header>
+                    <p>Files will become available to choose!</p>
+                </Message>
               </Form>
             </Card>
     );

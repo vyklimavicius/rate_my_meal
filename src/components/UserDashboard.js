@@ -107,7 +107,6 @@ const UserDashboard = () => {
                                 <Dropdown item text='User'>
                                     <DropdownMenu>
                                         <DropdownItem onClick={userProfile}>Profile</DropdownItem>
-                                        <DropdownItem>Settings</DropdownItem>
                                         <DropdownItem onClick={logOut}>Logout</DropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>
@@ -121,7 +120,7 @@ const UserDashboard = () => {
                             </Menu>
                         </nav>
                     </header>
-                        { profile === true ? <Userprofile user={currentUser} /> : null}
+                        { profile === true ? <Userprofile user={currentUser} bool={userProfile} /> : null}
                         <Header style={styles.header}>RateMyMeal</Header>
                         {addRestaurantBool === true ? <AddRestaurant  addRestaurantUI={addRestaurantUI} /> : null}
                     <section style={styles.section}>
