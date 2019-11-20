@@ -60,17 +60,17 @@ const HomeScreen = () => {
         },
         textFooter: {
             fontFamily: 'Sacramento, cursive',
-            // fontSize: '1.5vw',
+            fontSize: '1.5vw',
             padding: '0.2%'
         },
         text: {
             fontFamily: 'Sacramento, cursive',
-            // fontSize: '2vw',
+            fontSize: '2vw',
         },
         textSignUp: {
             marginTop: '10%',
             fontFamily: 'Sacramento, cursive',
-            // fontSize: '2vw'
+            fontSize: '2vw'
         },
         grid: {
             marginTop: '1%',
@@ -82,16 +82,17 @@ const HomeScreen = () => {
             width: '60%',
         },
         form: {
-            margin: '0'
+            margin: '5%',
+            fontSize: '1vw'
         },
         button: {
             backgroundColor: '#227DA5',
             color: '#ffffff'
         },
         image: {
-            margin: 'auto',
-            width: '30%',
-            height: 'auto',
+            margin: 'auto 1%',
+            width: '40%',
+            height: '80%',
             border: '2px solid #227DA5',
         },
         social: {
