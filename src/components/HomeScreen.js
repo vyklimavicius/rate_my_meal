@@ -82,7 +82,7 @@ const HomeScreen = () => {
             width: '60%',
         },
         form: {
-            margin: '1%'
+            margin: '0'
         },
         button: {
             backgroundColor: '#227DA5',
@@ -167,6 +167,7 @@ const HomeScreen = () => {
                                     <FormField>
                                         <Label pointing='below'>Please type your email</Label>
                                         <Input 
+                                        size='mini'
                                         type='text'
                                         icon='user circle' 
                                         placeholder='Please type your email'
@@ -176,6 +177,7 @@ const HomeScreen = () => {
                                     </FormField>
                                     <FormField>
                                         <Input 
+                                        size='mini'
                                         type='password'
                                         icon='user secret' 
                                         placeholder='Please type your password'
