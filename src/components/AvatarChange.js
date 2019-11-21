@@ -41,7 +41,8 @@ const AvatarChange = (props) => {
             <Input
                 style={styles.input}
                 required
-                type='file'
+                type='url'
+                placeholder='Image url location'
                 icon='image'
                 name='avatar'
                 onChange={(e) => props.inputChange(e)}
