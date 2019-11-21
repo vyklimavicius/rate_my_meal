@@ -10,7 +10,7 @@ Form,
 FormField,
 Input, 
 // Image,
-Label } from 'semantic-ui-react';
+} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 // import burrito from '../assets/burrito.jpg';
 
@@ -164,7 +164,6 @@ const HomeScreen = () => {
                                  <Header style={styles.text}>Login</Header>
                                 <Form style={styles.form}>
                                     <FormField>
-                                        <Label pointing='below'>Please type your email</Label>
                                         <Input 
                                         type='text'
                                         icon='user circle' 
@@ -181,7 +180,6 @@ const HomeScreen = () => {
                                         name='password'
                                         onChange={(e) => inputChange(e)}
                                         />
-                                        <Label pointing='above'>Please type your password</Label>
                                     </FormField>
                                 </Form>
                                     <Link to="/signup" style={styles.textSignUp}>
