@@ -54,10 +54,10 @@ const HomeScreen = () => {
             paddingTop: '1%',
         },
         header: {
-            marginTop: '0.5%',
+            marginTop: '1%',
             marginLeft: '5%',
             fontFamily: 'Sacramento, cursive',
-            fontSize: '60px',
+            fontSize: '50px',
             color: '#227DA5',
         },
         textFooter: {
