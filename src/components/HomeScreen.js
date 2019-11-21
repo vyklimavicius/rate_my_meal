@@ -20,17 +20,18 @@ const HomeScreen = () => {
     const styles = {
 
         container: {
-            margin: '0',
+            // margin: '0',
             padding: '2%',
-            width: 'auto',
-            height: '950px',
+            width: '100%',
+            height: '100%',
             backgroundColor: '#227DA5',
-            overflowX: 'auto'
+            position: 'fixed'
+            // overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
-            width: 'auto',
-            margin: 'auto',
+            width: '100%',
+            // margin: 'auto',
             height: '100%',
         },
         subCard: {
@@ -40,8 +41,8 @@ const HomeScreen = () => {
             marginLeft: '5%',
             marginRight: '5%',
             marginBottom: '5%',
-            width: '90%',
-            height: '80%',
+            width: 'auto',
+            height: '100%',
             flexDirection: 'row',
         },
         footerCard: {
@@ -54,7 +55,7 @@ const HomeScreen = () => {
             paddingTop: '1%',
         },
         header: {
-            marginTop: '1%',
+            marginTop: '0.2%',
             marginLeft: '5%',
             fontFamily: 'Sacramento, cursive',
             fontSize: '50px',
@@ -75,9 +76,9 @@ const HomeScreen = () => {
             fontSize: '15px'
         },
         grid: {
-            margin: '1% 1%',
-            height: 'auto',
-            padding: '1%',
+            // margin: '1% 1%',
+            height: '100%',
+            // padding: '1%',
             width: '100%',
         },
         form: {
