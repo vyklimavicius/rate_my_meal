@@ -62,7 +62,7 @@ const HomeScreen = () => {
         },
         textFooter: {
             fontFamily: 'Sacramento, cursive',
-            fontSize: '30px',
+            fontSize: '20px',
             padding: '0.2%'
         },
         text: {
