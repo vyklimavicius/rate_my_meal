@@ -66,12 +66,12 @@ const HomeScreen = () => {
             padding: '0.2%'
         },
         text: {
-            fontFamily: 'Sacramento, cursive',
+            fontFamily: 'Roboto, sans- serif',
             fontSize: '30px',
         },
         textSignUp: {
             marginTop: '10%',
-            fontFamily: 'Sacramento, cursive',
+            fontFamily: 'Roboto, sans- serif',
             fontSize: '30px'
         },
         grid: {
