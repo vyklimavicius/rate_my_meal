@@ -14,7 +14,7 @@ const UserDashboard = () => {
             width: '100%',
             height: '100%',
             backgroundColor: '#227DA5',
-            overflowX: 'auto'
+            // overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
