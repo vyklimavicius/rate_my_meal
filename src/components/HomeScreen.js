@@ -61,7 +61,7 @@ const HomeScreen = () => {
             color: '#227DA5',
         },
         textFooter: {
-            fontFamily: 'Sacramento, cursive',
+            fontFamily: 'Roboto, sans- serif',
             fontSize: '20px',
             padding: '0.2%'
         },
