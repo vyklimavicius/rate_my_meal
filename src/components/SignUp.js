@@ -9,7 +9,7 @@ const SignUp = () => {
         container: {
             padding: '1%',
             width: '100%',
-            height: '850px',
+            height: '870px',
             backgroundColor: '#227DA5',
             // position: 'fixed'
             // overflow: 'auto',
@@ -47,7 +47,7 @@ const SignUp = () => {
     };
 
     // State
-    const [ newUser, setNewUser ] = useState({});
+    const [ newUser, setNewUser ] = useState({avatar: male});
     const [ terms, setTerms ] = useState(false);
     const [ avatarCheck, setAvatarCheck ] = useState(false);
     const [ avatar, setAvatar ] = useState(male);
@@ -124,6 +124,7 @@ const SignUp = () => {
             <Card style={styles.mainCard}>
                 <Header style={styles.header}>RateMyMeal</Header>
                 <Image onClick={avatarBoolCheck} style={styles.image} src={avatar} size='small' circular/>
+                <Header as='h3' style={{textAlign: 'center'}}>Click on image to change Avatar</Header>
                 {avatarCheck === false ? null : <AvatarChange inputChange={inputChange} avatarBoolCheck={avatarBoolCheck} />}
                 <Card style={styles.subcard}>
                 <Form style={styles.form}>

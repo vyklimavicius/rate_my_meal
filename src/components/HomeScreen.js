@@ -202,7 +202,7 @@ const HomeScreen = () => {
                 {/* <Image style={styles.image} src={burrito} /> */}
             </Card>
               <Card style={styles.footerCard}>
-                    <Header style={styles.textFooter}>Vytautas Klimavicius©2019</Header>
+                    <Header style={styles.textFooter}>Vytautas Klimavicius©2019 v1.0.0</Header>
               </Card>
             </Card>
         </div>
