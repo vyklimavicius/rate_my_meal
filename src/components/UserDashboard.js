@@ -14,12 +14,13 @@ const UserDashboard = () => {
             width: '100%',
             height: '100%',
             backgroundColor: '#227DA5',
-            overflowX: 'auto'
+            position: 'fixed',
+            // overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
             width: '100%',
-            height: '100vh',
+            height: '100%',
         },
         section: {
             margin: '1%',
