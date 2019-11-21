@@ -11,7 +11,7 @@ const AvatarChange = (props) => {
             zIndex: '2',
             padding: '1',
             margin: '6% auto',
-            width: 'auto',
+            width: '60%',
             height: 'auto',
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
@@ -41,9 +41,8 @@ const AvatarChange = (props) => {
             <Input
                 style={styles.input}
                 required
-                type='url'
+                type='file'
                 icon='image'
-                placeholder='Type image URL'
                 name='avatar'
                 onChange={(e) => props.inputChange(e)}
             />
