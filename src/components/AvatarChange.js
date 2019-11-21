@@ -7,11 +7,12 @@ const AvatarChange = (props) => {
         card: {
             alignSelf: 'center',
             position: 'fixed',
+            overflowX: 'auto',
             zIndex: '2',
             padding: '1',
-            marginTop: '20%',
-            width: '30%',
-            height: '30%',
+            margin: '6% auto',
+            width: 'auto',
+            height: 'auto',
             boxShadow: '4px 4px 1px #227DA5',
             border: '2px solid #227DA5',
         },
@@ -29,8 +30,9 @@ const AvatarChange = (props) => {
             alignSelf: 'center'
         },
         message: {
-            width: '80',
-            alignSelf: 'center'
+            width: '80%',
+            alignSelf: 'center',
+            margin: '1%'
         }
     };
 
