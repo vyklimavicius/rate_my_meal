@@ -25,14 +25,14 @@ const HomeScreen = () => {
             width: '100%',
             height: '100%',
             backgroundColor: '#227DA5',
-            position: 'fixed'
-            // overflowX: 'auto'
+            // position: 'fixed',
+            overflowX: 'auto'
         },
         mainCard: {
             boxSizing: 'border-box',
             width: '100%',
             // margin: 'auto',
-            height: '100%',
+            height: '800px',
         },
         subCard: {
             backgroundColor: '#227DA5',
@@ -42,7 +42,7 @@ const HomeScreen = () => {
             marginRight: '5%',
             marginBottom: '5%',
             width: 'auto',
-            height: '100%',
+            height: '80%',
             flexDirection: 'row',
         },
         footerCard: {
