@@ -98,7 +98,7 @@ const AddRestaurant = (props) => {
                         <Input
                             type='url'
                             icon='image'
-                            placeholder='image url'
+                            placeholder='image url location'
                             name='url'
                             onChange={(e) => inputChange(e)}
                         />
