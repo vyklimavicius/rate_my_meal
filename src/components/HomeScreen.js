@@ -62,17 +62,17 @@ const HomeScreen = () => {
         },
         textFooter: {
             fontFamily: 'Roboto, sans- serif',
-            fontSize: '20px',
+            fontSize: '15px',
             padding: '0.2%'
         },
         text: {
             fontFamily: 'Roboto, sans- serif',
-            fontSize: '30px',
+            fontSize: '15px',
         },
         textSignUp: {
             marginTop: '10%',
             fontFamily: 'Roboto, sans- serif',
-            fontSize: '30px'
+            fontSize: '15px'
         },
         grid: {
             margin: '1% 1%',
