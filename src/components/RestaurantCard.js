@@ -26,9 +26,9 @@ const RestaurantCard = ({ user, restaurant }) => {
             margin: 'auto'
         },
         image: {
-            width: '50%',
-            height: '50%',
-            margin: '0 auto',
+            width: 'auto',
+            height: 'auto',
+            margin: '1% auto',
         }
     };
     
