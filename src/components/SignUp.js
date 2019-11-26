@@ -105,7 +105,8 @@ const SignUp = () => {
                 setNewUser({ ...newUser, lastname: e.target.value });
                 break;
             case 'email':
-                setNewUser({ ...newUser, email: e.target.value });
+                let input = e.target.value.toLowerCase();
+                setNewUser({ ...newUser, email: input });
                 break;
             case 'password':
                 setNewUser({ ...newUser, password: e.target.value });

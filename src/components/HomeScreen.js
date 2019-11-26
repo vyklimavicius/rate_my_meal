@@ -138,7 +138,8 @@ const HomeScreen = () => {
     const inputChange = (e) => {
         switch (e.target.name) {
             case 'email':
-                setCurrentUser({ ...currentUser, email: e.target.value });
+                let input = e.target.value.toLowerCase();
+                setCurrentUser({ ...currentUser, email: input });
                 break;
             case 'password':
                 setCurrentUser({ ...currentUser, password: e.target.value });
@@ -201,7 +202,7 @@ const HomeScreen = () => {
                 {/* <Image style={styles.image} src={burrito} /> */}
             </Card>
               <Card style={styles.footerCard}>
-                    <Header style={styles.textFooter}>Vytautas Klimavicius©2019 v1.0.0</Header>
+                    <Header style={styles.textFooter}>Vytautas Klimavicius©2019 v1.0.1</Header>
               </Card>
             </Card>
         </div>
