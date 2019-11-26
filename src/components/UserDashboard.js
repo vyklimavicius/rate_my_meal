@@ -40,10 +40,11 @@ const UserDashboard = () => {
         avatar: {
             width: '5%',
             height: '5%',
-            margin: '1%',
+            margin: '2% 2%',
         },
         username: {
-            margin: 'auto 1%'
+            alignSelf: 'center',
+           margin: '1%'
         },
         placeholder: {
             margin: 'auto',
