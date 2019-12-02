@@ -27,8 +27,11 @@ const RestaurantCard = ({ user, restaurant }) => {
         },
         image: {
             width: 'auto',
-            height: 'auto',
-            margin: '1% auto',
+            maxWidth: '100%' ,
+            height: 'auto'
+            // width: 'auto',
+            // height: 'auto',
+            // margin: '1% auto',
         }
     };
     
@@ -68,7 +71,7 @@ const RestaurantCard = ({ user, restaurant }) => {
 
     return (
                 <Card style={styles.card}>
-                    <Image  style={styles.image} src={restaurant.image}  size='medium' rounded/>
+                    <Image  style={styles.image} src={restaurant.image}  size='small' rounded/>
                         <CardContent>
                             <Card.Header>{restaurant.name.toUpperCase()}</Card.Header>
                             <Header as='h4'>Specialty: {restaurant.specialty}</Header>
@@ -94,3 +97,4 @@ const RestaurantCard = ({ user, restaurant }) => {
 }
 
 export default RestaurantCard;
+

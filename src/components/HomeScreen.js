@@ -30,9 +30,10 @@ const HomeScreen = () => {
         },
         mainCard: {
             boxSizing: 'border-box',
+            alignSelf: 'center',
             width: '100%',
-            // margin: 'auto',
-            height: '800px',
+            // margin: '30px 5px',
+            height: '900px',
         },
         subCard: {
             backgroundColor: '#227DA5',
