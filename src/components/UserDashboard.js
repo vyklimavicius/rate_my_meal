@@ -75,7 +75,6 @@ const UserDashboard = () => {
         };
     },[restaurants]);
 
-
     const addRestaurantUI = () => {
         if (addRestaurantBool === false) {
             setAddRestaurantBool(true);

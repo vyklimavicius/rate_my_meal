@@ -27,7 +27,7 @@ const AddReview = ({ user, restaurant, bool }) => {
     };
 
     // State
-    const [review, setReview] = useState({}); 
+    const [review, setReview] = useState({rating_id: 1}); 
 
     // Cycle
     const sendChange = () => {
